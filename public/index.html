@@ -164,86 +164,170 @@
     <!-- Notification -->
     <div id="notification" class="notification"></div>
 
-    <!-- Login Page -->
-    <div id="loginPage" class="login-container min-h-screen bg-black flex items-center justify-center px-4">
-        <div class="max-w-md w-full space-y-8">
-            <!-- Logo and Title -->
-            <div class="text-center">
-                <div class="logo-container">
-                    <img src="/logo-transparent.png" alt="Umbrella Claims & Property Solutions" class="h-24 mx-auto" />
-                </div>
-                <h2 class="logo-text mb-2">
-                    <span class="um">Um</span><span class="brella">brella</span>
-                </h2>
-                <p class="text-gray-300 text-lg mb-2">
-                    Claims & Property Solutions
-                </p>
-                <div class="w-8 h-8 bg-red-500 rounded-full mx-auto mt-2"></div>
-            </div>
+        <!-- Login Page -->
+    <div id="loginPage" class="login-container min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 flex">
+        <!-- Left Side - Login Form -->
+        <section class="signin-pane flex-1 flex items-center justify-center">
+            <div class="signin-pane__container max-w-md w-full mx-auto px-8">
+                <!-- Header with Logo -->
+                <header class="header text-center mb-12">
+                    <div class="logo-container mb-6">
+                        <img src="/logo-transparent.png" alt="Umbrella Claims & Property Solutions" class="h-20 mx-auto" />
+                    </div>
+                    <h1 class="text-3xl font-bold text-white mb-2">
+                        <span class="text-blue-400">Um</span><span class="text-red-400">brella</span>
+                    </h1>
+                    <p class="text-gray-300 text-lg">Claims & Property Solutions LLP</p>
+                </header>
 
-            <!-- Login Form -->
-            <div class="dark-card p-8">
-                <h3 class="text-2xl font-bold text-white mb-6 text-center">
-                    Umbrella CRM
-                </h3>
-                                            <p class="text-blue-400 text-center mb-6">
-                                Claims & Property Solutions LLP
-                            </p>
-                <div class="text-center text-white mb-6">
-                    <span class="text-blue-400">•</span> Licensed <span class="text-blue-400">•</span> Insured <span class="text-blue-400">•</span> Trusted
-                </div>
-                
-                <form id="loginForm" class="space-y-6">
+                <!-- Login Form -->
+                <form id="loginForm" class="signin__form space-y-6">
+                    <h2 class="text-2xl font-light text-white text-center mb-8">Sign in to Umbrella CRM</h2>
+                    
                     <!-- Email Field -->
-                    <div>
-                        <label class="block text-sm font-medium text-white mb-2">
-                            Email Address *
-                        </label>
-                        <input
-                            type="email"
-                            id="email"
-                            required
-                            class="input-field"
-                            placeholder="Enter your email"
+                    <div class="form-v3-text mb-6">
+                        <input 
+                            autofocus="autofocus" 
+                            class="form-v3-text__input--signin w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none transition-colors" 
+                            id="email" 
+                            name="email" 
+                            placeholder="Email" 
+                            required="required" 
+                            type="email" 
                         />
+                        <label class="form-v3-text__label--signin text-gray-400 text-sm mt-2 block" for="email">Email Address</label>
                     </div>
 
                     <!-- Password Field -->
-                    <div>
-                        <label class="block text-sm font-medium text-white mb-2">
-                            Password *
-                        </label>
-                        <input
-                            type="password"
-                            id="password"
-                            required
-                            class="input-field"
-                            placeholder="Enter your password"
+                    <div class="form-v3-text mb-6">
+                        <input 
+                            class="form-v3-text__input--signin w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none transition-colors" 
+                            id="password" 
+                            name="password" 
+                            placeholder="Password" 
+                            required="required" 
+                            type="password" 
                         />
+                        <label class="form-v3-text__label--signin text-gray-400 text-sm mt-2 block" for="password">Password</label>
                     </div>
 
-                    <!-- Login Button -->
-                    <button type="submit" class="btn-primary w-full">
-                        Sign In to CRM
-                    </button>
+                    <!-- Login Button and Remember Me -->
+                    <div class="flex items-center justify-between mb-6">
+                        <button type="submit" class="button-v3 button-v3--solid-orange bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors">
+                            Sign In
+                        </button>
+                        <div class="form-v3-checkbox remember flex items-center">
+                            <input type="checkbox" id="RememberMe" name="RememberMe" class="form-v3-checkbox__input mr-2" value="true" />
+                            <label class="form-v3-checkbox__label text-gray-300 text-sm" for="RememberMe">Remember Email</label>
+                        </div>
+                    </div>
                 </form>
 
                 <!-- Demo Login -->
-                <div class="mt-6 text-center">
+                <div class="text-center mb-6">
                     <p class="text-sm text-gray-400 mb-2">Demo Access:</p>
-                    <button onclick="demoLogin()" class="text-blue-400 hover:text-blue-300 text-sm">
+                    <button onclick="demoLogin()" class="text-blue-400 hover:text-blue-300 text-sm underline">
                         Click here for demo access
                     </button>
                 </div>
-            </div>
 
-            <!-- Company Info -->
-            <div class="text-center text-gray-400">
-                <p class="text-sm">141 Traction St, Greenville, SC 29611</p>
-                <p class="text-sm">Phone: (864) 767-6188</p>
-                <p class="text-sm">Email: customerscare@roofsbyumbrella.com</p>
-                <p class="text-sm text-blue-400">www.roofsbyumbrella.com</p>
+                <!-- Divider -->
+                <div class="flex items-center mb-6">
+                    <hr class="flex-1 border-gray-600" />
+                    <p class="text-gray-400 mx-4">Or</p>
+                    <hr class="flex-1 border-gray-600" />
+                </div>
+
+                <!-- Social Login Info -->
+                <div class="flex items-center justify-between text-white mb-6">
+                    <div class="text-sm">
+                        <span class="font-bold mr-2">New!</span>
+                        <span>Sign in with your Google or Microsoft account.</span>
+                    </div>
+                    <div class="text-blue-400 cursor-pointer">
+                        <span>?</span>
+                    </div>
+                </div>
+
+                <!-- Social Login Buttons -->
+                <div class="flex gap-4 mb-6">
+                    <button class="flex-1 flex items-center justify-center gap-3 bg-white text-gray-800 px-4 py-3 rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors">
+                        <svg width="18" height="18" viewBox="0 0 48 48">
+                            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
+                            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path>
+                            <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path>
+                            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path>
+                        </svg>
+                        <span>Sign in with Google</span>
+                    </button>
+                    <button class="flex-1 flex items-center justify-center gap-3 bg-white text-gray-800 px-4 py-3 rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors">
+                        <svg width="18" height="18" viewBox="0 0 23 23">
+                            <path fill="#f3f3f3" d="M0 0h23v23H0z"/>
+                            <path fill="#f35325" d="M1 1h10v10H1z"/>
+                            <path fill="#81bc06" d="M12 1h10v10H12z"/>
+                            <path fill="#05a6f0" d="M1 12h10v10H1z"/>
+                            <path fill="#ffba08" d="M12 12h10v10H12z"/>
+                        </svg>
+                        <span>Sign in with Microsoft</span>
+                    </button>
+                </div>
+
+                <!-- Footer Links -->
+                <div class="text-center space-y-4">
+                    <p>
+                        <a class="text-blue-400 hover:text-blue-300 underline" href="#">Forgot Password?</a>
+                    </p>
+                    <p class="text-gray-400 text-sm">
+                        By logging in, you agree to the
+                        <a class="text-blue-400 hover:text-blue-300 underline" href="#" target="_blank">Umbrella CRM Terms and Conditions</a>
+                    </p>
+                </div>
             </div>
+        </section>
+
+        <!-- Right Side - Promo/Info -->
+        <div class="promo__container hidden lg:flex flex-1 bg-gradient-to-br from-blue-600 to-blue-800">
+            <div class="promo__faux-col"></div>
+            <section class="promo flex items-center justify-center text-center text-white p-12">
+                <div class="max-w-lg">
+                    <h2 class="text-4xl font-bold mb-6">Professional Property Management</h2>
+                    <p class="text-xl mb-8 text-blue-100">
+                        Streamline your roofing business with our comprehensive CRM solution. 
+                        Manage leads, track jobs, handle claims, and grow your business.
+                    </p>
+                    <div class="space-y-4 text-left">
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white text-lg">✓</span>
+                            </div>
+                            <span class="text-lg">Lead Management & Tracking</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white text-lg">✓</span>
+                            </div>
+                            <span class="text-lg">Insurance Claims Processing</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white text-lg">✓</span>
+                            </div>
+                            <span class="text-lg">Contract Management & E-Signatures</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white text-lg">✓</span>
+                            </div>
+                            <span class="text-lg">Scheduling & Crew Management</span>
+                        </div>
+                    </div>
+                    <div class="mt-8 text-center">
+                        <p class="text-blue-200 text-sm">141 Traction St, Greenville, SC 29611</p>
+                        <p class="text-blue-200 text-sm">(864) 767-6188 • customerscare@roofsbyumbrella.com</p>
+                        <p class="text-blue-200 text-sm">www.roofsbyumbrella.com</p>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
 
@@ -275,50 +359,50 @@
 
     <!-- CRM Interface -->
     <div id="crmInterface" class="crm-container h-screen bg-black">
-        <!-- Header -->
-        <header class="bg-black border-b border-gray-800 p-4">
-            <div class="max-w-7xl mx-auto flex items-center justify-between">
-                <div class="flex items-center space-x-4">
-                    <div class="flex items-center">
-                        <img src="/logo-transparent.png" alt="Umbrella" class="h-12 mr-3" />
-                        <div>
-                            <h1 class="text-2xl font-bold">
-                                <span class="text-blue-500">Um</span><span class="text-red-500">brella</span>
-                            </h1>
-                            <p class="text-gray-300 text-sm">Claims & Property Solutions</p>
+                        <!-- Header -->
+                <header class="bg-black border-b border-gray-800 p-4 w-full">
+                    <div class="flex items-center justify-between w-full">
+                        <div class="flex items-center space-x-4">
+                            <div class="flex items-center">
+                                <img src="/logo-transparent.png" alt="Umbrella" class="h-12 mr-3" />
+                                <div>
+                                    <h1 class="text-2xl font-bold">
+                                        <span class="text-blue-500">Um</span><span class="text-red-500">brella</span>
+                                    </h1>
+                                    <p class="text-gray-300 text-sm">Claims & Property Solutions</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="flex items-center space-x-4">
-                    <div class="text-right text-gray-300">
-                        <p class="text-sm">141 Traction St, Greenville, SC 29611</p>
-                        <p class="text-sm">(864) 767-6188</p>
-                        <p class="text-sm">customerscare@roofsbyumbrella.com</p>
-                    </div>
-                    <div class="flex items-center space-x-3">
-                        <div class="text-right text-gray-300">
-                            <p class="text-sm font-medium" id="userName">Loading...</p>
-                            <p class="text-xs" id="userRole">Loading...</p>
-                        </div>
-                        <img id="userAvatar" src="/avatar-placeholder.png" alt="User" class="profile-avatar" />
-                        <div class="relative">
-                            <button onclick="toggleUserMenu()" class="text-blue-400 hover:text-blue-300 text-sm">▼</button>
-                            <div id="userMenu" class="absolute right-0 mt-2 w-48 bg-gray-800 rounded-lg shadow-lg hidden">
-                                <a href="#" onclick="showProfile()" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">Profile</a>
-                                <a href="#" onclick="showSettings()" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">Settings</a>
-                                <a href="#" onclick="changePassword()" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">Change Password</a>
-                                <hr class="border-gray-600">
-                                <a href="#" onclick="logout()" class="block px-4 py-2 text-sm text-red-400 hover:bg-gray-700">Logout</a>
+                        <div class="flex items-center space-x-4">
+                            <div class="text-right text-gray-300 hidden lg:block">
+                                <p class="text-sm">141 Traction St, Greenville, SC 29611</p>
+                                <p class="text-sm">(864) 767-6188</p>
+                                <p class="text-sm">customerscare@roofsbyumbrella.com</p>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="text-right text-gray-300">
+                                    <p class="text-sm font-medium" id="userName">Loading...</p>
+                                    <p class="text-xs" id="userRole">Loading...</p>
+                                </div>
+                                <img id="userAvatar" src="/avatar-placeholder.png" alt="User" class="profile-avatar" />
+                                <div class="relative">
+                                    <button onclick="toggleUserMenu()" class="text-blue-400 hover:text-blue-300 text-sm">▼</button>
+                                    <div id="userMenu" class="absolute right-0 mt-2 w-48 bg-gray-800 rounded-lg shadow-lg hidden">
+                                        <a href="#" onclick="showProfile()" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">Profile</a>
+                                        <a href="#" onclick="showSettings()" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">Settings</a>
+                                        <a href="#" onclick="changePassword()" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">Change Password</a>
+                                        <hr class="border-gray-600">
+                                        <a href="#" onclick="logout()" class="block px-4 py-2 text-sm text-red-400 hover:bg-gray-700">Logout</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </header>
+                </header>
 
                             <div class="flex h-full">
                         <!-- Sidebar -->
-                        <nav class="sidebar-bg text-white w-64 p-6">
+                        <nav class="sidebar-bg text-white w-80 p-6 flex-shrink-0">
                             <div class="space-y-6">
                                 <div class="text-center mb-8">
                                     <div class="flex items-center justify-center mb-4">
@@ -366,7 +450,7 @@
                         </nav>
 
                         <!-- Main Content -->
-                        <main class="flex-1 p-8 overflow-auto">
+                        <main class="flex-1 p-8 overflow-auto min-w-0">
                             <!-- Notes Panel -->
                             <div id="notesPanel" class="fixed right-0 top-0 h-full w-80 bg-gray-900 border-l border-gray-700 transform translate-x-full transition-transform duration-300 z-50">
                                 <div class="p-4 border-b border-gray-700">
@@ -413,7 +497,7 @@
                     <h1 class="text-3xl font-bold text-white">Dashboard</h1>
                     
                     <!-- Stats Cards -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
                         <div class="dark-card p-6">
                             <div class="flex items-center">
                                 <div class="p-3 bg-blue-500 rounded-lg">
@@ -468,7 +552,7 @@
                     </div>
 
                     <!-- Charts Row -->
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 w-full">
                         <div class="dark-card p-6">
                             <h3 class="text-lg font-bold text-white mb-4">Revenue Trend</h3>
                             <canvas id="revenueChart" width="400" height="200"></canvas>
@@ -480,7 +564,7 @@
                     </div>
 
                     <!-- Recent Activity -->
-                    <div class="dark-card p-6">
+                    <div class="dark-card p-6 w-full">
                         <h2 class="text-xl font-bold text-white mb-4">Recent Activity</h2>
                         <div class="space-y-4">
                             <div class="flex items-center p-3 bg-blue-900/20 rounded-lg">
@@ -518,9 +602,9 @@
                     </div>
 
                     <!-- Quick Actions -->
-                    <div class="dark-card p-6">
+                    <div class="dark-card p-6 w-full">
                         <h2 class="text-xl font-bold text-white mb-4">Quick Actions</h2>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
                             <button class="btn-primary text-center" onclick="showPage('leads')">
                                 ➕ Add New Lead
                             </button>
