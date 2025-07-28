@@ -43,202 +43,767 @@
             border-radius: 0.5rem;
             font-weight: 600;
             transition: all 0.2s;
+            cursor: pointer;
         }
         .btn-primary:hover {
             transform: translateY(-1px);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+        .nav-link {
+            cursor: pointer;
+        }
+        .nav-link.active {
+            background: #374151;
+        }
+        .login-container {
+            display: block;
+        }
+        .crm-container {
+            display: none;
+        }
+        .crm-container.active {
+            display: flex;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
-    <!-- Header -->
-    <header class="gradient-bg text-white p-4">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <div class="flex items-center space-x-4">
-                <img src="/logo-black.png" alt="Umbrella" class="h-12">
-                <div>
-                    <h1 class="text-2xl font-bold">Umbrella CRM</h1>
-                    <p class="text-blue-100">Claims & Property Solutions</p>
+    <!-- Login Page -->
+    <div id="loginPage" class="login-container min-h-screen gradient-bg flex items-center justify-center px-4">
+        <div class="max-w-md w-full space-y-8">
+            <!-- Logo and Title -->
+            <div class="text-center">
+                <img src="/logo-black.png" alt="Umbrella Claims & Property Solutions" class="mx-auto h-32 mb-6" />
+                <h2 class="text-4xl font-bold text-white mb-2">
+                    Umbrella CRM
+                </h2>
+                <p class="text-blue-100 text-lg">
+                    Sign in to your account
+                </p>
+            </div>
+
+            <!-- Login Form -->
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <form id="loginForm" class="space-y-6">
+                    <!-- Email Field -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Email Address
+                        </label>
+                        <input
+                            type="email"
+                            id="email"
+                            required
+                            class="input-field"
+                            placeholder="Enter your email"
+                        />
+                    </div>
+
+                    <!-- Password Field -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Password
+                        </label>
+                        <input
+                            type="password"
+                            id="password"
+                            required
+                            class="input-field"
+                            placeholder="Enter your password"
+                        />
+                    </div>
+
+                    <!-- Login Button -->
+                    <button type="submit" class="btn-primary w-full">
+                        Sign In
+                    </button>
+                </form>
+
+                <!-- Demo Login -->
+                <div class="mt-6 text-center">
+                    <p class="text-sm text-gray-600 mb-2">Demo Login:</p>
+                    <button onclick="demoLogin()" class="text-blue-600 hover:text-blue-800 text-sm">
+                        Click here for demo access
+                    </button>
                 </div>
             </div>
-            <div class="text-right">
+
+            <!-- Company Info -->
+            <div class="text-center text-white">
                 <p class="text-sm">141 Traction St, Greenville, SC 29611</p>
                 <p class="text-sm">864-767-6188</p>
                 <p class="text-sm">customerscare@roofsbyumbrella.com</p>
             </div>
         </div>
-    </header>
+    </div>
 
-    <div class="flex h-screen">
-        <!-- Sidebar -->
-        <nav class="sidebar-bg text-white w-64 p-6">
-            <div class="space-y-6">
-                <div class="text-center mb-8">
-                    <img src="/logo-black.png" alt="Umbrella" class="h-16 mx-auto mb-4">
-                    <h2 class="text-xl font-bold">Dashboard</h2>
+    <!-- CRM Interface -->
+    <div id="crmInterface" class="crm-container h-screen">
+        <!-- Header -->
+        <header class="gradient-bg text-white p-4">
+            <div class="max-w-7xl mx-auto flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <img src="/logo-black.png" alt="Umbrella" class="h-20">
+                    <div>
+                        <h1 class="text-3xl font-bold">Umbrella CRM</h1>
+                        <p class="text-blue-100">Claims & Property Solutions</p>
+                    </div>
                 </div>
-                
-                <div class="space-y-2">
-                    <a href="#dashboard" class="block p-3 rounded-lg hover:bg-gray-700 transition-colors">
-                        📊 Dashboard
-                    </a>
-                    <a href="#leads" class="block p-3 rounded-lg hover:bg-gray-700 transition-colors">
-                        👥 Leads
-                    </a>
-                    <a href="#jobs" class="block p-3 rounded-lg hover:bg-gray-700 transition-colors">
-                        🏗️ Jobs
-                    </a>
-                    <a href="#claims" class="block p-3 rounded-lg hover:bg-gray-700 transition-colors">
-                        📋 Claims
-                    </a>
-                    <a href="#contracts" class="block p-3 rounded-lg hover:bg-gray-700 transition-colors">
-                        📄 Contracts
-                    </a>
-                    <a href="#scheduling" class="block p-3 rounded-lg hover:bg-gray-700 transition-colors">
-                        📅 Scheduling
-                    </a>
-                    <a href="#photos" class="block p-3 rounded-lg hover:bg-gray-700 transition-colors">
-                        📸 Photos
-                    </a>
-                    <a href="#reports" class="block p-3 rounded-lg hover:bg-gray-700 transition-colors">
-                        📈 Reports
-                    </a>
+                <div class="text-right">
+                    <p class="text-sm">141 Traction St, Greenville, SC 29611</p>
+                    <p class="text-sm">864-767-6188</p>
+                    <p class="text-sm">customerscare@roofsbyumbrella.com</p>
+                    <button onclick="logout()" class="text-white hover:text-blue-200 text-sm mt-2">Logout</button>
                 </div>
             </div>
-        </nav>
+        </header>
 
-        <!-- Main Content -->
-        <main class="flex-1 p-8 overflow-auto">
-            <div id="dashboard" class="space-y-6">
-                <h1 class="text-3xl font-bold text-gray-900">Dashboard</h1>
-                
-                <!-- Stats Cards -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="card p-6">
-                        <div class="flex items-center">
-                            <div class="p-3 bg-blue-500 rounded-lg">
-                                <span class="text-white text-2xl">👥</span>
+        <div class="flex h-full">
+            <!-- Sidebar -->
+            <nav class="sidebar-bg text-white w-64 p-6">
+                <div class="space-y-6">
+                    <div class="text-center mb-8">
+                        <img src="/logo-black.png" alt="Umbrella" class="h-24 mx-auto mb-4">
+                        <h2 class="text-xl font-bold">Dashboard</h2>
+                    </div>
+                    
+                    <div class="space-y-2">
+                        <div class="nav-link active p-3 rounded-lg hover:bg-gray-700 transition-colors" onclick="showPage('dashboard')">
+                            📊 Dashboard
+                        </div>
+                        <div class="nav-link p-3 rounded-lg hover:bg-gray-700 transition-colors" onclick="showPage('leads')">
+                            👥 Leads
+                        </div>
+                        <div class="nav-link p-3 rounded-lg hover:bg-gray-700 transition-colors" onclick="showPage('jobs')">
+                            🏗️ Jobs
+                        </div>
+                        <div class="nav-link p-3 rounded-lg hover:bg-gray-700 transition-colors" onclick="showPage('claims')">
+                            📋 Claims
+                        </div>
+                        <div class="nav-link p-3 rounded-lg hover:bg-gray-700 transition-colors" onclick="showPage('contracts')">
+                            📄 Contracts
+                        </div>
+                        <div class="nav-link p-3 rounded-lg hover:bg-gray-700 transition-colors" onclick="showPage('scheduling')">
+                            📅 Scheduling
+                        </div>
+                        <div class="nav-link p-3 rounded-lg hover:bg-gray-700 transition-colors" onclick="showPage('photos')">
+                            📸 Photos
+                        </div>
+                        <div class="nav-link p-3 rounded-lg hover:bg-gray-700 transition-colors" onclick="showPage('reports')">
+                            📈 Reports
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="flex-1 p-8 overflow-auto">
+                <!-- Dashboard Page -->
+                <div id="dashboard" class="page active space-y-6">
+                    <h1 class="text-3xl font-bold text-gray-900">Dashboard</h1>
+                    
+                    <!-- Stats Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="card p-6">
+                            <div class="flex items-center">
+                                <div class="p-3 bg-blue-500 rounded-lg">
+                                    <span class="text-white text-2xl">👥</span>
+                                </div>
+                                <div class="ml-4">
+                                    <p class="text-sm text-gray-600">Total Leads</p>
+                                    <p class="text-2xl font-bold text-gray-900">24</p>
+                                    <p class="text-sm text-green-600">+12% from last month</p>
+                                </div>
                             </div>
-                            <div class="ml-4">
-                                <p class="text-sm text-gray-600">Total Leads</p>
-                                <p class="text-2xl font-bold text-gray-900">24</p>
-                                <p class="text-sm text-green-600">+12% from last month</p>
+                        </div>
+                        
+                        <div class="card p-6">
+                            <div class="flex items-center">
+                                <div class="p-3 bg-green-500 rounded-lg">
+                                    <span class="text-white text-2xl">🏗️</span>
+                                </div>
+                                <div class="ml-4">
+                                    <p class="text-sm text-gray-600">Active Jobs</p>
+                                    <p class="text-2xl font-bold text-gray-900">8</p>
+                                    <p class="text-sm text-green-600">+3% from last month</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card p-6">
+                            <div class="flex items-center">
+                                <div class="p-3 bg-purple-500 rounded-lg">
+                                    <span class="text-white text-2xl">📅</span>
+                                </div>
+                                <div class="ml-4">
+                                    <p class="text-sm text-gray-600">Scheduled</p>
+                                    <p class="text-2xl font-bold text-gray-900">12</p>
+                                    <p class="text-sm text-green-600">+5% from last month</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card p-6">
+                            <div class="flex items-center">
+                                <div class="p-3 bg-yellow-500 rounded-lg">
+                                    <span class="text-white text-2xl">💰</span>
+                                </div>
+                                <div class="ml-4">
+                                    <p class="text-sm text-gray-600">Revenue</p>
+                                    <p class="text-2xl font-bold text-gray-900">$45,230</p>
+                                    <p class="text-sm text-green-600">+18% from last month</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
+
+                    <!-- Recent Activity -->
                     <div class="card p-6">
-                        <div class="flex items-center">
-                            <div class="p-3 bg-green-500 rounded-lg">
-                                <span class="text-white text-2xl">🏗️</span>
+                        <h2 class="text-xl font-bold text-gray-900 mb-4">Recent Activity</h2>
+                        <div class="space-y-4">
+                            <div class="flex items-center p-3 bg-blue-50 rounded-lg">
+                                <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                                <div class="flex-1">
+                                    <p class="font-medium">New lead added: John Smith</p>
+                                    <p class="text-sm text-gray-600">2 minutes ago</p>
+                                </div>
                             </div>
-                            <div class="ml-4">
-                                <p class="text-sm text-gray-600">Active Jobs</p>
-                                <p class="text-2xl font-bold text-gray-900">8</p>
-                                <p class="text-sm text-green-600">+3% from last month</p>
+                            
+                            <div class="flex items-center p-3 bg-yellow-50 rounded-lg">
+                                <div class="w-2 h-2 bg-yellow-500 rounded-full mr-3"></div>
+                                <div class="flex-1">
+                                    <p class="font-medium">Job #1234 moved to Production</p>
+                                    <p class="text-sm text-gray-600">1 hour ago</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center p-3 bg-green-50 rounded-lg">
+                                <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                                <div class="flex-1">
+                                    <p class="font-medium">Contract signed for 456 Oak St</p>
+                                    <p class="text-sm text-gray-600">3 hours ago</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center p-3 bg-green-50 rounded-lg">
+                                <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                                <div class="flex-1">
+                                    <p class="font-medium">Claim approved for $12,500</p>
+                                    <p class="text-sm text-gray-600">5 hours ago</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
+
+                    <!-- Quick Actions -->
                     <div class="card p-6">
-                        <div class="flex items-center">
-                            <div class="p-3 bg-purple-500 rounded-lg">
-                                <span class="text-white text-2xl">📅</span>
-                            </div>
-                            <div class="ml-4">
-                                <p class="text-sm text-gray-600">Scheduled</p>
-                                <p class="text-2xl font-bold text-gray-900">12</p>
-                                <p class="text-sm text-green-600">+5% from last month</p>
-                            </div>
+                        <h2 class="text-xl font-bold text-gray-900 mb-4">Quick Actions</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <button class="btn-primary text-center" onclick="showPage('leads')">
+                                ➕ Add New Lead
+                            </button>
+                            <button class="btn-primary text-center" onclick="showPage('jobs')">
+                                📋 Create Job
+                            </button>
+                            <button class="btn-primary text-center" onclick="showPage('contracts')">
+                                📄 Generate Contract
+                            </button>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Leads Page -->
+                <div id="leads" class="page space-y-6">
+                    <div class="flex justify-between items-center">
+                        <h1 class="text-3xl font-bold text-gray-900">Leads Management</h1>
+                        <button class="btn-primary" onclick="addNewLead()">➕ Add New Lead</button>
                     </div>
                     
                     <div class="card p-6">
-                        <div class="flex items-center">
-                            <div class="p-3 bg-yellow-500 rounded-lg">
-                                <span class="text-white text-2xl">💰</span>
+                        <div class="mb-4">
+                            <input type="text" placeholder="Search leads..." class="input-field" id="leadSearch" onkeyup="searchLeads()">
+                        </div>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead>
+                                    <tr class="border-b">
+                                        <th class="text-left p-3">Name</th>
+                                        <th class="text-left p-3">Phone</th>
+                                        <th class="text-left p-3">Email</th>
+                                        <th class="text-left p-3">Status</th>
+                                        <th class="text-left p-3">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="leadsTable">
+                                    <tr class="border-b">
+                                        <td class="p-3">John Smith</td>
+                                        <td class="p-3">(555) 123-4567</td>
+                                        <td class="p-3">john@email.com</td>
+                                        <td class="p-3"><span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">New</span></td>
+                                        <td class="p-3">
+                                            <button class="text-blue-600 hover:text-blue-800 mr-2" onclick="editLead(this)">Edit</button>
+                                            <button class="text-red-600 hover:text-red-800" onclick="deleteLead(this)">Delete</button>
+                                        </td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <td class="p-3">Sarah Wilson</td>
+                                        <td class="p-3">(555) 987-6543</td>
+                                        <td class="p-3">sarah@email.com</td>
+                                        <td class="p-3"><span class="bg-green-100 text-green-800 px-2 py-1 rounded">Contacted</span></td>
+                                        <td class="p-3">
+                                            <button class="text-blue-600 hover:text-blue-800 mr-2" onclick="editLead(this)">Edit</button>
+                                            <button class="text-red-600 hover:text-red-800" onclick="deleteLead(this)">Delete</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jobs Page -->
+                <div id="jobs" class="page space-y-6">
+                    <div class="flex justify-between items-center">
+                        <h1 class="text-3xl font-bold text-gray-900">Jobs Management</h1>
+                        <button class="btn-primary" onclick="addNewJob()">➕ Add New Job</button>
+                    </div>
+                    
+                    <div class="card p-6">
+                        <div class="mb-4">
+                            <input type="text" placeholder="Search jobs..." class="input-field" id="jobSearch" onkeyup="searchJobs()">
+                        </div>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead>
+                                    <tr class="border-b">
+                                        <th class="text-left p-3">Job #</th>
+                                        <th class="text-left p-3">Customer</th>
+                                        <th class="text-left p-3">Address</th>
+                                        <th class="text-left p-3">Status</th>
+                                        <th class="text-left p-3">Value</th>
+                                        <th class="text-left p-3">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="jobsTable">
+                                    <tr class="border-b">
+                                        <td class="p-3">JOB-001</td>
+                                        <td class="p-3">John Smith</td>
+                                        <td class="p-3">123 Main St</td>
+                                        <td class="p-3"><span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded">Inspection</span></td>
+                                        <td class="p-3">$15,000</td>
+                                        <td class="p-3">
+                                            <button class="text-blue-600 hover:text-blue-800 mr-2" onclick="editJob(this)">Edit</button>
+                                            <button class="text-red-600 hover:text-red-800" onclick="deleteJob(this)">Delete</button>
+                                        </td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <td class="p-3">JOB-002</td>
+                                        <td class="p-3">Sarah Wilson</td>
+                                        <td class="p-3">456 Oak Ave</td>
+                                        <td class="p-3"><span class="bg-green-100 text-green-800 px-2 py-1 rounded">Production</span></td>
+                                        <td class="p-3">$8,500</td>
+                                        <td class="p-3">
+                                            <button class="text-blue-600 hover:text-blue-800 mr-2" onclick="editJob(this)">Edit</button>
+                                            <button class="text-red-600 hover:text-red-800" onclick="deleteJob(this)">Delete</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Claims Page -->
+                <div id="claims" class="page space-y-6">
+                    <div class="flex justify-between items-center">
+                        <h1 class="text-3xl font-bold text-gray-900">Insurance Claims</h1>
+                        <button class="btn-primary" onclick="addNewClaim()">➕ Add New Claim</button>
+                    </div>
+                    
+                    <div class="card p-6">
+                        <div class="mb-4">
+                            <input type="text" placeholder="Search claims..." class="input-field" id="claimSearch" onkeyup="searchClaims()">
+                        </div>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead>
+                                    <tr class="border-b">
+                                        <th class="text-left p-3">Claim #</th>
+                                        <th class="text-left p-3">Customer</th>
+                                        <th class="text-left p-3">Insurance</th>
+                                        <th class="text-left p-3">Status</th>
+                                        <th class="text-left p-3">Value</th>
+                                        <th class="text-left p-3">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="claimsTable">
+                                    <tr class="border-b">
+                                        <td class="p-3">CLM-001</td>
+                                        <td class="p-3">John Smith</td>
+                                        <td class="p-3">State Farm</td>
+                                        <td class="p-3"><span class="bg-green-100 text-green-800 px-2 py-1 rounded">Approved</span></td>
+                                        <td class="p-3">$12,000</td>
+                                        <td class="p-3">
+                                            <button class="text-blue-600 hover:text-blue-800 mr-2" onclick="editClaim(this)">Edit</button>
+                                            <button class="text-red-600 hover:text-red-800" onclick="deleteClaim(this)">Delete</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contracts Page -->
+                <div id="contracts" class="page space-y-6">
+                    <div class="flex justify-between items-center">
+                        <h1 class="text-3xl font-bold text-gray-900">Contracts</h1>
+                        <button class="btn-primary" onclick="addNewContract()">➕ Add New Contract</button>
+                    </div>
+                    
+                    <div class="card p-6">
+                        <div class="mb-4">
+                            <input type="text" placeholder="Search contracts..." class="input-field" id="contractSearch" onkeyup="searchContracts()">
+                        </div>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead>
+                                    <tr class="border-b">
+                                        <th class="text-left p-3">Contract #</th>
+                                        <th class="text-left p-3">Customer</th>
+                                        <th class="text-left p-3">Job #</th>
+                                        <th class="text-left p-3">Status</th>
+                                        <th class="text-left p-3">Value</th>
+                                        <th class="text-left p-3">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="contractsTable">
+                                    <tr class="border-b">
+                                        <td class="p-3">CON-001</td>
+                                        <td class="p-3">John Smith</td>
+                                        <td class="p-3">JOB-001</td>
+                                        <td class="p-3"><span class="bg-green-100 text-green-800 px-2 py-1 rounded">Signed</span></td>
+                                        <td class="p-3">$15,000</td>
+                                        <td class="p-3">
+                                            <button class="text-blue-600 hover:text-blue-800 mr-2" onclick="editContract(this)">Edit</button>
+                                            <button class="text-green-600 hover:text-green-800 mr-2" onclick="signContract(this)">Sign</button>
+                                            <button class="text-red-600 hover:text-red-800" onclick="deleteContract(this)">Delete</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scheduling Page -->
+                <div id="scheduling" class="page space-y-6">
+                    <div class="flex justify-between items-center">
+                        <h1 class="text-3xl font-bold text-gray-900">Scheduling</h1>
+                        <button class="btn-primary" onclick="addNewSchedule()">➕ Add Schedule</button>
+                    </div>
+                    
+                    <div class="card p-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="border rounded-lg p-4">
+                                <h3 class="font-bold mb-2">Today</h3>
+                                <div class="space-y-2">
+                                    <div class="bg-blue-50 p-3 rounded">
+                                        <p class="font-medium">JOB-001 - John Smith</p>
+                                        <p class="text-sm text-gray-600">8:00 AM - Roof Replacement</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="ml-4">
-                                <p class="text-sm text-gray-600">Revenue</p>
-                                <p class="text-2xl font-bold text-gray-900">$45,230</p>
-                                <p class="text-sm text-green-600">+18% from last month</p>
+                            
+                            <div class="border rounded-lg p-4">
+                                <h3 class="font-bold mb-2">Tomorrow</h3>
+                                <div class="space-y-2">
+                                    <div class="bg-green-50 p-3 rounded">
+                                        <p class="font-medium">JOB-002 - Sarah Wilson</p>
+                                        <p class="text-sm text-gray-600">9:00 AM - Gutter Replacement</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="border rounded-lg p-4">
+                                <h3 class="font-bold mb-2">This Week</h3>
+                                <div class="space-y-2">
+                                    <div class="bg-yellow-50 p-3 rounded">
+                                        <p class="font-medium">JOB-003 - Mike Johnson</p>
+                                        <p class="text-sm text-gray-600">Wednesday - Inspection</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Recent Activity -->
-                <div class="card p-6">
-                    <h2 class="text-xl font-bold text-gray-900 mb-4">Recent Activity</h2>
-                    <div class="space-y-4">
-                        <div class="flex items-center p-3 bg-blue-50 rounded-lg">
-                            <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                            <div class="flex-1">
-                                <p class="font-medium">New lead added: John Smith</p>
-                                <p class="text-sm text-gray-600">2 minutes ago</p>
+                <!-- Photos Page -->
+                <div id="photos" class="page space-y-6">
+                    <div class="flex justify-between items-center">
+                        <h1 class="text-3xl font-bold text-gray-900">Photo Documentation</h1>
+                        <button class="btn-primary" onclick="uploadPhotos()">📸 Upload Photos</button>
+                    </div>
+                    
+                    <div class="card p-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="border rounded-lg p-4">
+                                <div class="bg-gray-200 h-32 rounded mb-2 flex items-center justify-center">
+                                    <span class="text-gray-500">📷</span>
+                                </div>
+                                <h3 class="font-medium">JOB-001 - Before</h3>
+                                <p class="text-sm text-gray-600">John Smith - 123 Main St</p>
+                                <p class="text-sm text-gray-500">Jan 20, 2024</p>
                             </div>
-                        </div>
-                        
-                        <div class="flex items-center p-3 bg-yellow-50 rounded-lg">
-                            <div class="w-2 h-2 bg-yellow-500 rounded-full mr-3"></div>
-                            <div class="flex-1">
-                                <p class="font-medium">Job #1234 moved to Production</p>
-                                <p class="text-sm text-gray-600">1 hour ago</p>
+                            
+                            <div class="border rounded-lg p-4">
+                                <div class="bg-gray-200 h-32 rounded mb-2 flex items-center justify-center">
+                                    <span class="text-gray-500">📷</span>
+                                </div>
+                                <h3 class="font-medium">JOB-001 - After</h3>
+                                <p class="text-sm text-gray-600">John Smith - 123 Main St</p>
+                                <p class="text-sm text-gray-500">Jan 25, 2024</p>
                             </div>
-                        </div>
-                        
-                        <div class="flex items-center p-3 bg-green-50 rounded-lg">
-                            <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
-                            <div class="flex-1">
-                                <p class="font-medium">Contract signed for 456 Oak St</p>
-                                <p class="text-sm text-gray-600">3 hours ago</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-center p-3 bg-green-50 rounded-lg">
-                            <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
-                            <div class="flex-1">
-                                <p class="font-medium">Claim approved for $12,500</p>
-                                <p class="text-sm text-gray-600">5 hours ago</p>
+                            
+                            <div class="border rounded-lg p-4">
+                                <div class="bg-gray-200 h-32 rounded mb-2 flex items-center justify-center">
+                                    <span class="text-gray-500">📷</span>
+                                </div>
+                                <h3 class="font-medium">JOB-002 - Progress</h3>
+                                <p class="text-sm text-gray-600">Sarah Wilson - 456 Oak Ave</p>
+                                <p class="text-sm text-gray-500">Jan 26, 2024</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Quick Actions -->
-                <div class="card p-6">
-                    <h2 class="text-xl font-bold text-gray-900 mb-4">Quick Actions</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <button class="btn-primary text-center">
-                            ➕ Add New Lead
-                        </button>
-                        <button class="btn-primary text-center">
-                            📋 Create Job
-                        </button>
-                        <button class="btn-primary text-center">
-                            📄 Generate Contract
-                        </button>
+                <!-- Reports Page -->
+                <div id="reports" class="page space-y-6">
+                    <h1 class="text-3xl font-bold text-gray-900">Reports & Analytics</h1>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="card p-6">
+                            <h3 class="font-bold mb-2">Monthly Revenue</h3>
+                            <p class="text-3xl font-bold text-green-600">$45,230</p>
+                            <p class="text-sm text-green-600">+18% from last month</p>
+                        </div>
+                        
+                        <div class="card p-6">
+                            <h3 class="font-bold mb-2">Lead Conversion</h3>
+                            <p class="text-3xl font-bold text-blue-600">23.5%</p>
+                            <p class="text-sm text-blue-600">+2.1% from last month</p>
+                        </div>
+                        
+                        <div class="card p-6">
+                            <h3 class="font-bold mb-2">Active Jobs</h3>
+                            <p class="text-3xl font-bold text-purple-600">8</p>
+                            <p class="text-sm text-purple-600">+3 from last month</p>
+                        </div>
+                        
+                        <div class="card p-6">
+                            <h3 class="font-bold mb-2">Customer Satisfaction</h3>
+                            <p class="text-3xl font-bold text-yellow-600">4.8/5</p>
+                            <p class="text-sm text-yellow-600">+0.2 from last month</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card p-6">
+                        <h2 class="text-xl font-bold text-gray-900 mb-4">Recent Reports</h2>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center p-3 bg-gray-50 rounded">
+                                <div>
+                                    <p class="font-medium">Monthly Revenue Report</p>
+                                    <p class="text-sm text-gray-600">January 2024</p>
+                                </div>
+                                <button class="btn-primary">Download</button>
+                            </div>
+                            
+                            <div class="flex justify-between items-center p-3 bg-gray-50 rounded">
+                                <div>
+                                    <p class="font-medium">Lead Analytics Report</p>
+                                    <p class="text-sm text-gray-600">Q4 2023</p>
+                                </div>
+                                <button class="btn-primary">Download</button>
+                            </div>
+                            
+                            <div class="flex justify-between items-center p-3 bg-gray-50 rounded">
+                                <div>
+                                    <p class="font-medium">Job Performance Report</p>
+                                    <p class="text-sm text-gray-600">December 2023</p>
+                                </div>
+                                <button class="btn-primary">Download</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </main>
+            </main>
+        </div>
     </div>
 
     <script>
-        // Simple navigation
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const target = e.target.getAttribute('href').substring(1);
-                document.getElementById(target).scrollIntoView({ behavior: 'smooth' });
-            });
-        });
+        // Login functionality
+        function demoLogin() {
+            document.getElementById('loginPage').style.display = 'none';
+            document.getElementById('crmInterface').classList.add('active');
+        }
 
-        // Add some interactivity
-        document.querySelectorAll('.btn-primary').forEach(btn => {
-            btn.addEventListener('click', () => {
-                alert('Feature coming soon! This is a demo version.');
+        function logout() {
+            document.getElementById('loginPage').style.display = 'block';
+            document.getElementById('crmInterface').classList.remove('active');
+        }
+
+        // Navigation functionality
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
             });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update navigation
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Find and activate the clicked link
+            event.target.classList.add('active');
+        }
+
+        // Add functions
+        function addNewLead() {
+            alert('Add New Lead - Feature coming soon!');
+        }
+
+        function addNewJob() {
+            alert('Add New Job - Feature coming soon!');
+        }
+
+        function addNewClaim() {
+            alert('Add New Claim - Feature coming soon!');
+        }
+
+        function addNewContract() {
+            alert('Add New Contract - Feature coming soon!');
+        }
+
+        function addNewSchedule() {
+            alert('Add New Schedule - Feature coming soon!');
+        }
+
+        function uploadPhotos() {
+            alert('Upload Photos - Feature coming soon!');
+        }
+
+        // Edit functions
+        function editLead(button) {
+            alert('Edit Lead - Feature coming soon!');
+        }
+
+        function editJob(button) {
+            alert('Edit Job - Feature coming soon!');
+        }
+
+        function editClaim(button) {
+            alert('Edit Claim - Feature coming soon!');
+        }
+
+        function editContract(button) {
+            alert('Edit Contract - Feature coming soon!');
+        }
+
+        // Delete functions
+        function deleteLead(button) {
+            if (confirm('Are you sure you want to delete this lead?')) {
+                button.closest('tr').remove();
+            }
+        }
+
+        function deleteJob(button) {
+            if (confirm('Are you sure you want to delete this job?')) {
+                button.closest('tr').remove();
+            }
+        }
+
+        function deleteClaim(button) {
+            if (confirm('Are you sure you want to delete this claim?')) {
+                button.closest('tr').remove();
+            }
+        }
+
+        function deleteContract(button) {
+            if (confirm('Are you sure you want to delete this contract?')) {
+                button.closest('tr').remove();
+            }
+        }
+
+        // Sign contract
+        function signContract(button) {
+            alert('Contract signing feature coming soon!');
+        }
+
+        // Search functions
+        function searchLeads() {
+            const searchTerm = document.getElementById('leadSearch').value.toLowerCase();
+            const rows = document.querySelectorAll('#leadsTable tr');
+            
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.includes(searchTerm) ? '' : 'none';
+            });
+        }
+
+        function searchJobs() {
+            const searchTerm = document.getElementById('jobSearch').value.toLowerCase();
+            const rows = document.querySelectorAll('#jobsTable tr');
+            
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.includes(searchTerm) ? '' : 'none';
+            });
+        }
+
+        function searchClaims() {
+            const searchTerm = document.getElementById('claimSearch').value.toLowerCase();
+            const rows = document.querySelectorAll('#claimsTable tr');
+            
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.includes(searchTerm) ? '' : 'none';
+            });
+        }
+
+        function searchContracts() {
+            const searchTerm = document.getElementById('contractSearch').value.toLowerCase();
+            const rows = document.querySelectorAll('#contractsTable tr');
+            
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.includes(searchTerm) ? '' : 'none';
+            });
+        }
+
+        // Login form submission
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            if (email && password) {
+                demoLogin();
+            } else {
+                alert('Please enter both email and password');
+            }
         });
     </script>
 </body>
