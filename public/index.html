@@ -91,6 +91,24 @@
         .table-row:hover {
             background: #374151;
         }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        .logo-text {
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            font-size: 2.5rem;
+            letter-spacing: -0.025em;
+        }
+        .logo-text .um {
+            color: #3b82f6;
+        }
+        .logo-text .brella {
+            color: #ef4444;
+        }
     </style>
 </head>
 <body class="bg-black">
@@ -99,19 +117,11 @@
         <div class="max-w-md w-full space-y-8">
             <!-- Logo and Title -->
             <div class="text-center">
-                <div class="flex items-center justify-center mb-6">
-                    <div class="relative">
-                        <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-red-500 rounded-full flex items-center justify-center">
-                            <div class="w-12 h-12 bg-black rounded-full"></div>
-                        </div>
-                        <div class="absolute inset-0 w-16 h-16">
-                            <div class="w-8 h-4 bg-blue-500 rounded-t-full absolute top-0 left-0"></div>
-                            <div class="w-8 h-4 bg-red-500 rounded-t-full absolute top-0 right-0"></div>
-                        </div>
-                    </div>
+                <div class="logo-container">
+                    <img src="/logo-transparent.png" alt="Umbrella Claims & Property Solutions" class="h-24 mx-auto" />
                 </div>
-                <h2 class="text-4xl font-bold mb-2">
-                    <span class="text-blue-500">Um</span><span class="text-red-500">brella</span>
+                <h2 class="logo-text mb-2">
+                    <span class="um">Um</span><span class="brella">brella</span>
                 </h2>
                 <p class="text-gray-300 text-lg mb-2">
                     Claims & Property Solutions
@@ -122,10 +132,10 @@
             <!-- Login Form -->
             <div class="dark-card p-8">
                 <h3 class="text-2xl font-bold text-white mb-6 text-center">
-                    Insurance Claims Portal
+                    Umbrella CRM
                 </h3>
                 <p class="text-blue-400 text-center mb-6">
-                    Professional Property Assessment
+                    Professional Property Management
                 </p>
                 <div class="text-center text-white mb-6">
                     <span class="text-blue-400">•</span> Licensed <span class="text-blue-400">•</span> Insured <span class="text-blue-400">•</span> Trusted
@@ -162,7 +172,7 @@
 
                     <!-- Login Button -->
                     <button type="submit" class="btn-primary w-full">
-                        Continue to CRM
+                        Sign In to CRM
                     </button>
                 </form>
 
@@ -192,15 +202,7 @@
             <div class="max-w-7xl mx-auto flex items-center justify-between">
                 <div class="flex items-center space-x-4">
                     <div class="flex items-center">
-                        <div class="relative mr-3">
-                            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-red-500 rounded-full flex items-center justify-center">
-                                <div class="w-8 h-8 bg-black rounded-full"></div>
-                            </div>
-                            <div class="absolute inset-0 w-12 h-12">
-                                <div class="w-6 h-3 bg-blue-500 rounded-t-full absolute top-0 left-0"></div>
-                                <div class="w-6 h-3 bg-red-500 rounded-t-full absolute top-0 right-0"></div>
-                            </div>
-                        </div>
+                        <img src="/logo-transparent.png" alt="Umbrella" class="h-12 mr-3" />
                         <div>
                             <h1 class="text-2xl font-bold">
                                 <span class="text-blue-500">Um</span><span class="text-red-500">brella</span>
@@ -224,15 +226,7 @@
                 <div class="space-y-6">
                     <div class="text-center mb-8">
                         <div class="flex items-center justify-center mb-4">
-                            <div class="relative">
-                                <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-red-500 rounded-full flex items-center justify-center">
-                                    <div class="w-10 h-10 bg-black rounded-full"></div>
-                                </div>
-                                <div class="absolute inset-0 w-16 h-16">
-                                    <div class="w-8 h-4 bg-blue-500 rounded-t-full absolute top-0 left-0"></div>
-                                    <div class="w-8 h-4 bg-red-500 rounded-t-full absolute top-0 right-0"></div>
-                                </div>
-                            </div>
+                            <img src="/logo-transparent.png" alt="Umbrella" class="h-16" />
                         </div>
                         <h2 class="text-xl font-bold">Dashboard</h2>
                     </div>
