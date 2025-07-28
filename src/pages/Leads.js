@@ -6,15 +6,8 @@ import {
   Edit, 
   Trash2, 
   Phone, 
-  Mail, 
-  MapPin,
   User,
-  Calendar,
-  MoreVertical,
-  DollarSign,
-  FileText,
-  Star,
-  Link
+  Calendar
 } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { 

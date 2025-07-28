@@ -1,13 +1,4 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { 
-  createUserWithEmailAndPassword, 
-  signInWithEmailAndPassword, 
-  signOut, 
-  onAuthStateChanged,
-  sendPasswordResetEmail,
-  updateProfile
-} from 'firebase/auth';
-import { doc, setDoc, getDoc } from 'firebase/firestore';
 import { auth, db } from '../firebase';
 
 const AuthContext = createContext();
@@ -22,70 +13,52 @@ export function AuthProvider({ children }) {
   const [userRole, setUserRole] = useState(null);
 
   async function signup(email, password, firstName, lastName, role = 'Sales Rep') {
-    const result = await createUserWithEmailAndPassword(auth, email, password);
-    
-    // Update profile with display name
-    await updateProfile(result.user, {
-      displayName: `${firstName} ${lastName}`
-    });
-
-    // Create user document in Firestore
-    await setDoc(doc(db, 'users', result.user.uid), {
-      email,
-      firstName,
-      lastName,
-      role,
-      createdAt: new Date(),
-      isActive: true
-    });
-
-    return result;
+    // Mock signup for demo
+    const mockUser = { uid: 'demo-user', email, displayName: `${firstName} ${lastName}` };
+    setCurrentUser(mockUser);
+    setUserRole(role);
+    return { user: mockUser };
   }
 
   function login(email, password) {
-    return signInWithEmailAndPassword(auth, email, password);
+    // Mock login for demo
+    const mockUser = { uid: 'demo-user', email };
+    setCurrentUser(mockUser);
+    setUserRole('Admin');
+    return Promise.resolve({ user: mockUser });
   }
 
   function logout() {
-    return signOut(auth);
+    // Mock logout for demo
+    setCurrentUser(null);
+    setUserRole(null);
+    return Promise.resolve();
   }
 
   function resetPassword(email) {
-    return sendPasswordResetEmail(auth, email);
+    // Mock password reset for demo
+    return Promise.resolve();
   }
 
   async function updateUserProfile(updates) {
-    return updateProfile(currentUser, updates);
+    // Mock profile update for demo
+    if (currentUser) {
+      setCurrentUser({ ...currentUser, ...updates });
+    }
+    return Promise.resolve();
   }
 
   async function fetchUserRole(uid) {
-    try {
-      const userDoc = await getDoc(doc(db, 'users', uid));
-      if (userDoc.exists()) {
-        return userDoc.data().role;
-      }
-      return null;
-    } catch (error) {
-      console.error('Error fetching user role:', error);
-      return null;
-    }
+    // Mock role fetch for demo
+    return 'Admin';
   }
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      setCurrentUser(user);
-      
-      if (user) {
-        const role = await fetchUserRole(user.uid);
-        setUserRole(role);
-      } else {
-        setUserRole(null);
-      }
-      
-      setLoading(false);
-    });
-
-    return unsubscribe;
+    // Mock auth state change for demo
+    const mockUser = { uid: 'demo-user', email: 'admin@roofsbyumbrella.com' };
+    setCurrentUser(mockUser);
+    setUserRole('Admin');
+    setLoading(false);
   }, []);
 
   const value = {

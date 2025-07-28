@@ -8,7 +8,6 @@ import {
   MapPin,
   Calendar,
   DollarSign,
-  User,
   Clock,
   CheckCircle,
   AlertCircle,

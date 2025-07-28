@@ -1,20 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-                <meta
-              name="description"
-              content="Umbrella Claims & Property Solutions CRM - Professional roofing and property solutions in Greenville, SC"
-            />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-                <title>Umbrella Claims & Property Solutions - CRM</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umbrella CRM - Claims & Property Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'umbrella-blue': '#1e40af',
+                        'umbrella-red': '#ef4444'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e40af 0%, #ef4444 100%);
+        }
+        .sidebar-bg {
+            background: #1f2937;
+        }
+        .card {
+            background: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .input-field {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            background: #f9fafb;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #1e40af 0%, #ef4444 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="gradient-bg text-white p-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <img src="/logo-black.png" alt="Umbrella" class="h-12">
+                <div>
+                    <h1 class="text-2xl font-bold">Umbrella CRM</h1>
+                    <p class="text-blue-100">Claims & Property Solutions</p>
+                </div>
+            </div>
+            <div class="text-right">
+                <p class="text-sm">141 Traction St, Greenville, SC 29611</p>
+                <p class="text-sm">864-767-6188</p>
+                <p class="text-sm">customerscare@roofsbyumbrella.com</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <nav class="sidebar-bg text-white w-64 p-6">
+            <div class="space-y-6">
+                <div class="text-center mb-8">
+                    <img src="/logo-black.png" alt="Umbrella" class="h-16 mx-auto mb-4">
+                    <h2 class="text-xl font-bold">Dashboard</h2>
+                </div>
+                
+                <div class="space-y-2">
+                    <a href="#dashboard" class="block p-3 rounded-lg hover:bg-gray-700 transition-colors">
+                        📊 Dashboard
+                    </a>
+                    <a href="#leads" class="block p-3 rounded-lg hover:bg-gray-700 transition-colors">
+                        👥 Leads
+                    </a>
+                    <a href="#jobs" class="block p-3 rounded-lg hover:bg-gray-700 transition-colors">
+                        🏗️ Jobs
+                    </a>
+                    <a href="#claims" class="block p-3 rounded-lg hover:bg-gray-700 transition-colors">
+                        📋 Claims
+                    </a>
+                    <a href="#contracts" class="block p-3 rounded-lg hover:bg-gray-700 transition-colors">
+                        📄 Contracts
+                    </a>
+                    <a href="#scheduling" class="block p-3 rounded-lg hover:bg-gray-700 transition-colors">
+                        📅 Scheduling
+                    </a>
+                    <a href="#photos" class="block p-3 rounded-lg hover:bg-gray-700 transition-colors">
+                        📸 Photos
+                    </a>
+                    <a href="#reports" class="block p-3 rounded-lg hover:bg-gray-700 transition-colors">
+                        📈 Reports
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8 overflow-auto">
+            <div id="dashboard" class="space-y-6">
+                <h1 class="text-3xl font-bold text-gray-900">Dashboard</h1>
+                
+                <!-- Stats Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="card p-6">
+                        <div class="flex items-center">
+                            <div class="p-3 bg-blue-500 rounded-lg">
+                                <span class="text-white text-2xl">👥</span>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm text-gray-600">Total Leads</p>
+                                <p class="text-2xl font-bold text-gray-900">24</p>
+                                <p class="text-sm text-green-600">+12% from last month</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card p-6">
+                        <div class="flex items-center">
+                            <div class="p-3 bg-green-500 rounded-lg">
+                                <span class="text-white text-2xl">🏗️</span>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm text-gray-600">Active Jobs</p>
+                                <p class="text-2xl font-bold text-gray-900">8</p>
+                                <p class="text-sm text-green-600">+3% from last month</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card p-6">
+                        <div class="flex items-center">
+                            <div class="p-3 bg-purple-500 rounded-lg">
+                                <span class="text-white text-2xl">📅</span>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm text-gray-600">Scheduled</p>
+                                <p class="text-2xl font-bold text-gray-900">12</p>
+                                <p class="text-sm text-green-600">+5% from last month</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card p-6">
+                        <div class="flex items-center">
+                            <div class="p-3 bg-yellow-500 rounded-lg">
+                                <span class="text-white text-2xl">💰</span>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm text-gray-600">Revenue</p>
+                                <p class="text-2xl font-bold text-gray-900">$45,230</p>
+                                <p class="text-sm text-green-600">+18% from last month</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="card p-6">
+                    <h2 class="text-xl font-bold text-gray-900 mb-4">Recent Activity</h2>
+                    <div class="space-y-4">
+                        <div class="flex items-center p-3 bg-blue-50 rounded-lg">
+                            <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                            <div class="flex-1">
+                                <p class="font-medium">New lead added: John Smith</p>
+                                <p class="text-sm text-gray-600">2 minutes ago</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center p-3 bg-yellow-50 rounded-lg">
+                            <div class="w-2 h-2 bg-yellow-500 rounded-full mr-3"></div>
+                            <div class="flex-1">
+                                <p class="font-medium">Job #1234 moved to Production</p>
+                                <p class="text-sm text-gray-600">1 hour ago</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center p-3 bg-green-50 rounded-lg">
+                            <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                            <div class="flex-1">
+                                <p class="font-medium">Contract signed for 456 Oak St</p>
+                                <p class="text-sm text-gray-600">3 hours ago</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center p-3 bg-green-50 rounded-lg">
+                            <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                            <div class="flex-1">
+                                <p class="font-medium">Claim approved for $12,500</p>
+                                <p class="text-sm text-gray-600">5 hours ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="card p-6">
+                    <h2 class="text-xl font-bold text-gray-900 mb-4">Quick Actions</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <button class="btn-primary text-center">
+                            ➕ Add New Lead
+                        </button>
+                        <button class="btn-primary text-center">
+                            📋 Create Job
+                        </button>
+                        <button class="btn-primary text-center">
+                            📄 Generate Contract
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Simple navigation
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = e.target.getAttribute('href').substring(1);
+                document.getElementById(target).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Add some interactivity
+        document.querySelectorAll('.btn-primary').forEach(btn => {
+            btn.addEventListener('click', () => {
+                alert('Feature coming soon! This is a demo version.');
+            });
+        });
+    </script>
+</body>
 </html> 

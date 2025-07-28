@@ -6,8 +6,6 @@ import {
   Edit, 
   Trash2, 
   Camera,
-  Download,
-  Eye,
   Calendar,
   MapPin
 } from 'lucide-react';

@@ -5,11 +5,7 @@ import {
   Filter, 
   Edit, 
   Trash2, 
-  Shield,
-  DollarSign,
-  Calendar,
-  User,
-  FileText
+  Shield
 } from 'lucide-react';
 import toast from 'react-hot-toast';
 
