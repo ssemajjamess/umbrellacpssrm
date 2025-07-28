@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umbrella Claims & Property Solutions - Insurance Claims Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: #000;
+            color: white;
+            font-family: 'Inter', sans-serif;
+        }
+        .umbrella-logo {
+            background: linear-gradient(90deg, #2563eb 50%, #dc2626 50%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .form-input {
+            background: #1f2937;
+            border: 1px solid #374151;
+            border-radius: 8px;
+            color: white;
+        }
+        .form-input::placeholder {
+            color: #9ca3af;
+        }
+        .continue-btn {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.3);
+        }
+        .company-info {
+            background: #1f2937;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-black">
+    <!-- Mobile Status Bar -->
+    <div class="flex justify-between items-center px-4 py-2 text-white text-sm">
+        <span>7:03</span>
+        <div class="flex items-center space-x-1">
+            <span>N</span>
+            <span>📶</span>
+            <span>📶</span>
+            <span>📶</span>
+            <span>📶</span>
+            <span>41</span>
+        </div>
+    </div>
+
+    <!-- Browser Address Bar -->
+    <div class="flex items-center justify-between px-4 py-2 bg-gray-800 text-white text-sm">
+        <div class="flex items-center space-x-2">
+            <span>🏠</span>
+            <span>suacsemaj.replit.app</span>
+        </div>
+        <div class="flex items-center space-x-2">
+            <span>🔄</span>
+            <span>➕</span>
+            <span>8</span>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="px-4 py-6">
+        <!-- Logo and Branding -->
+        <div class="text-center mb-8">
+            <div class="flex justify-center mb-4">
+                <div class="w-16 h-16 bg-gradient-to-r from-blue-600 to-red-500 rounded-full flex items-center justify-center">
+                    <span class="text-2xl">☂️</span>
+                </div>
+            </div>
+            <h1 class="umbrella-logo text-4xl font-bold mb-2">Umbrella</h1>
+            <p class="text-white italic text-lg mb-2">Claims & Property Solutions</p>
+            <div class="w-8 h-8 bg-red-500 rounded-full mx-auto"></div>
+        </div>
+
+        <!-- Insurance Claims Portal Title -->
+        <div class="text-center mb-8">
+            <h2 class="text-2xl font-bold text-white mb-2">Insurance Claims Portal</h2>
+            <p class="text-blue-400 text-lg mb-2">Professional Property Assessment</p>
+            <p class="text-white text-sm">• Licensed • Insured • Trusted</p>
+        </div>
+
+        <!-- Progress Indicator -->
+        <div class="flex justify-between items-center mb-6">
+            <span class="text-white text-sm">Step 1 of 2</span>
+            <span class="text-white text-sm">Customer Information</span>
+        </div>
+        <div class="w-full bg-gray-700 rounded-full h-2 mb-8">
+            <div class="bg-blue-500 h-2 rounded-full" style="width: 50%"></div>
+        </div>
+
+        <!-- Customer Information Form -->
+        <div class="company-info p-6 mb-6">
+            <h3 class="text-xl font-bold text-white mb-2">Customer Information</h3>
+            <p class="text-gray-300 text-sm mb-6">Please provide the homeowner's details to begin the claims process.</p>
+            
+            <form class="space-y-4">
+                <div>
+                    <label class="block text-white text-sm mb-2">Customer Name *</label>
+                    <input type="text" placeholder="Enter full name" class="form-input w-full px-4 py-3">
+                </div>
+                
+                <div>
+                    <label class="block text-white text-sm mb-2">Property Address *</label>
+                    <textarea placeholder="Enter complete property address" class="form-input w-full px-4 py-3 h-20 resize-none"></textarea>
+                </div>
+                
+                <div>
+                    <label class="block text-white text-sm mb-2">Phone Number *</label>
+                    <input type="tel" placeholder="(000) 000-0000" class="form-input w-full px-4 py-3">
+                </div>
+                
+                <div>
+                    <label class="block text-white text-sm mb-2">Email Address</label>
+                    <input type="email" placeholder="customer@example.com" class="form-input w-full px-4 py-3">
+                </div>
+                
+                <div>
+                    <label class="block text-white text-sm mb-2">Insurance Company</label>
+                    <input type="text" placeholder="Enter insurance provider name" class="form-input w-full px-4 py-3">
+                </div>
+                
+                <div>
+                    <label class="block text-white text-sm mb-2">Claim Number</label>
+                    <input type="text" placeholder="Enter claim number (if available)" class="form-input w-full px-4 py-3">
+                </div>
+            </form>
+        </div>
+
+        <!-- Continue Button -->
+        <button onclick="showClaimsForm()" class="continue-btn w-full py-4 px-6 rounded-lg text-white font-semibold text-lg flex items-center justify-center space-x-2 mb-6">
+            <span>Continue to Contract</span>
+            <span>→</span>
+        </button>
+
+        <!-- Company Information -->
+        <div class="company-info p-6">
+            <h4 class="font-bold text-white mb-2">Umbrella Claims & Property Solutions LLP</h4>
+            <div class="text-gray-300 text-sm space-y-1">
+                <p>141 Traction St, Greenville, SC 29611</p>
+                <p>Phone: (864) 767-6188</p>
+                <p>Email: customercare@roofsbyumbrella.com</p>
+                <p class="text-blue-400 underline">www.roofsbyumbrella.com</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Claims Form (Hidden initially) -->
+    <div id="claims-form" class="hidden px-4 py-6">
+        <!-- Progress Indicator -->
+        <div class="flex justify-between items-center mb-6">
+            <span class="text-white text-sm">Step 2 of 2</span>
+            <span class="text-white text-sm">Insurance Claims</span>
+        </div>
+        <div class="w-full bg-gray-700 rounded-full h-2 mb-8">
+            <div class="bg-blue-500 h-2 rounded-full" style="width: 100%"></div>
+        </div>
+
+        <!-- Claims Form -->
+        <div class="company-info p-6 mb-6">
+            <h3 class="text-xl font-bold text-white mb-6">Insurance Claims</h3>
+            
+            <form class="space-y-4">
+                <div>
+                    <label class="block text-white text-sm mb-2">Insurance Company</label>
+                    <input type="text" placeholder="Enter insurance provider name" class="form-input w-full px-4 py-3">
+                </div>
+                
+                <div>
+                    <label class="block text-white text-sm mb-2">Claim Number</label>
+                    <input type="text" placeholder="Enter claim number (if available)" class="form-input w-full px-4 py-3">
+                </div>
+                
+                <div>
+                    <label class="block text-white text-sm mb-2">Date of Loss</label>
+                    <input type="date" class="form-input w-full px-4 py-3">
+                </div>
+                
+                <div>
+                    <label class="block text-white text-sm mb-2">Date *</label>
+                    <input type="date" value="2025-07-27" class="form-input w-full px-4 py-3">
+                    <p class="text-gray-400 text-xs mt-1">Automatically set to today's date</p>
+                </div>
+                
+                <div>
+                    <label class="block text-white text-sm mb-2">Sales Representative *</label>
+                    <select class="form-input w-full px-4 py-3">
+                        <option value="">Select a sales representative</option>
+                        <option value="james">James Causey</option>
+                        <option value="daniel">Daniel Pruiksma</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+
+        <!-- Continue Button -->
+        <button onclick="showDashboard()" class="continue-btn w-full py-4 px-6 rounded-lg text-white font-semibold text-lg flex items-center justify-center space-x-2 mb-6">
+            <span>Continue to Contract</span>
+            <span>→</span>
+        </button>
+
+        <!-- Company Information -->
+        <div class="company-info p-6">
+            <h4 class="font-bold text-white mb-2">Umbrella Claims & Property Solutions LLP</h4>
+            <div class="text-gray-300 text-sm space-y-1">
+                <p>141 Traction St, Greenville, SC 29611</p>
+                <p>Phone: (864) 767-6188</p>
+                <p>Email: customercare@roofsbyumbrella.com</p>
+                <p class="text-blue-400 underline">www.roofsbyumbrella.com</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Navigation Bar -->
+    <div class="fixed bottom-0 left-0 right-0 bg-gray-900 flex justify-around items-center py-2">
+        <span class="text-white">☰</span>
+        <span class="text-white">●</span>
+        <span class="text-white">←</span>
+    </div>
+
+    <script>
+        function showClaimsForm() {
+            document.querySelector('.px-4.py-6').style.display = 'none';
+            document.getElementById('claims-form').classList.remove('hidden');
+        }
+        
+        function showDashboard() {
+            alert('CRM Dashboard would open here with all your customer data and management tools!');
+        }
+    </script>
+</body>
+</html> 

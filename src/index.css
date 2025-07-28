@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', system-ui, sans-serif;
+  }
+  
+  body {
+    @apply bg-black text-white;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-blue-600 to-red-500 hover:from-blue-700 hover:to-red-600 text-white font-medium py-2 px-4 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg;
+  }
+  
+  .btn-secondary {
+    @apply bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 font-medium py-2 px-4 rounded-lg transition-all duration-200;
+  }
+  
+  .card {
+    @apply bg-gray-900 rounded-2xl shadow-xl border border-gray-700 p-6 backdrop-blur-sm;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-800 text-white placeholder-gray-400;
+  }
+  
+  .sidebar {
+    @apply bg-gray-900 text-white min-h-screen w-64 fixed left-0 top-0 z-50;
+  }
+  
+  .main-content {
+    @apply ml-64 min-h-screen bg-black;
+  }
+  
+  .mobile-sidebar {
+    @apply fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden;
+  }
+  
+  .mobile-sidebar-content {
+    @apply fixed left-0 top-0 h-full w-64 bg-gray-900 text-white transform transition-transform duration-300 ease-in-out;
+  }
+  
+  .mobile-sidebar-content.open {
+    @apply translate-x-0;
+  }
+  
+  .mobile-sidebar-content.closed {
+    @apply -translate-x-full;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-blue-600 to-red-500 bg-clip-text text-transparent;
+  }
+  
+  .bg-gradient-umbrella {
+    background: linear-gradient(135deg, #2563eb 0%, #ef4444 100%);
+  }
+} 

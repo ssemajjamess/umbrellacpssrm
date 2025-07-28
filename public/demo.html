@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umbrella CRM - Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .umbrella-gradient {
+            background: linear-gradient(135deg, #2563eb 0%, #dc2626 100%);
+        }
+        .sidebar {
+            background: #1f2937;
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Login Page Demo -->
+    <div class="min-h-screen umbrella-gradient flex items-center justify-center px-4">
+        <div class="max-w-md w-full space-y-8">
+            <!-- Logo and Title -->
+            <div class="text-center">
+                <div class="mx-auto h-20 w-20 bg-white rounded-full flex items-center justify-center mb-6">
+                    <span class="text-3xl">☂️</span>
+                </div>
+                <h2 class="text-3xl font-bold text-white mb-2">
+                    Umbrella CRM
+                </h2>
+                <p class="text-blue-100">
+                    Sign in to your account
+                </p>
+            </div>
+
+            <!-- Login Form -->
+            <div class="card p-8">
+                <form class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Email</label>
+                        <input type="email" value="admin@roofsbyumbrella.com" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Password</label>
+                        <input type="password" value="password123" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <button type="button" onclick="showDashboard()" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white umbrella-gradient hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        Sign In
+                    </button>
+                </form>
+            </div>
+
+            <!-- Footer -->
+            <div class="text-center">
+                <p class="text-blue-100 text-sm">
+                    © 2024 Umbrella Claims & Property Solutions
+                </p>
+                <p class="text-blue-100 text-xs mt-1">
+                    141 Traction St, Greenville, SC 29611 • 864-767-6188
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Demo (Hidden initially) -->
+    <div id="dashboard" class="hidden min-h-screen bg-gray-50">
+        <div class="flex">
+            <!-- Sidebar -->
+            <div class="sidebar w-64 min-h-screen p-6">
+                <div class="flex items-center space-x-3 mb-8">
+                    <div class="w-8 h-8 bg-white rounded flex items-center justify-center">
+                        <span class="text-lg">☂️</span>
+                    </div>
+                    <span class="text-white font-semibold">Umbrella CRM</span>
+                </div>
+                
+                <!-- Company Info -->
+                <div class="mb-6 text-xs text-gray-300 space-y-1">
+                    <div>141 Traction St, Greenville, SC 29611</div>
+                    <div>864-767-6188</div>
+                    <div>customerscare@roofsbyumbrella.com</div>
+                    <div>www.roofsbyumbrella.com</div>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="space-y-2">
+                    <a href="#" class="block px-4 py-2 text-white bg-gradient-to-r from-blue-600 to-red-500 rounded">Dashboard</a>
+                    <a href="#" class="block px-4 py-2 text-gray-300 hover:text-white">Leads</a>
+                    <a href="#" class="block px-4 py-2 text-gray-300 hover:text-white">Jobs</a>
+                    <a href="#" class="block px-4 py-2 text-gray-300 hover:text-white">Scheduling</a>
+                    <a href="#" class="block px-4 py-2 text-gray-300 hover:text-white">Contracts</a>
+                    <a href="#" class="block px-4 py-2 text-gray-300 hover:text-white">Claims</a>
+                    <a href="#" class="block px-4 py-2 text-gray-300 hover:text-white">Photos</a>
+                    <a href="#" class="block px-4 py-2 text-gray-300 hover:text-white">Reports</a>
+                    <a href="#" class="block px-4 py-2 text-gray-300 hover:text-white">Settings</a>
+                </nav>
+            </div>
+
+            <!-- Main Content -->
+            <div class="flex-1 p-8">
+                <div class="mb-8">
+                    <h1 class="text-2xl font-bold text-gray-900">Dashboard</h1>
+                    <p class="text-gray-600">Welcome back! Here's what's happening with your business.</p>
+                </div>
+
+                <!-- Company Info Banner -->
+                <div class="umbrella-gradient rounded-lg p-6 text-white mb-8">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h2 class="text-xl font-bold mb-2">Umbrella Claims & Property Solutions</h2>
+                            <div class="text-blue-100 space-y-1">
+                                <p>141 Traction St, Greenville, SC 29611</p>
+                                <p>Phone: 864-767-6188 • Email: customerscare@roofsbyumbrella.com</p>
+                                <p>Website: www.roofsbyumbrella.com</p>
+                            </div>
+                        </div>
+                        <div class="w-16 h-16 bg-white rounded flex items-center justify-center">
+                            <span class="text-2xl">☂️</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                    <div class="card p-6">
+                        <h3 class="text-lg font-semibold text-gray-900">Total Leads</h3>
+                        <p class="text-3xl font-bold text-blue-600">24</p>
+                    </div>
+                    <div class="card p-6">
+                        <h3 class="text-lg font-semibold text-gray-900">Active Jobs</h3>
+                        <p class="text-3xl font-bold text-green-600">8</p>
+                    </div>
+                    <div class="card p-6">
+                        <h3 class="text-lg font-semibold text-gray-900">Completed</h3>
+                        <p class="text-3xl font-bold text-purple-600">12</p>
+                    </div>
+                    <div class="card p-6">
+                        <h3 class="text-lg font-semibold text-gray-900">Revenue</h3>
+                        <p class="text-3xl font-bold text-red-600">$45,230</p>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="card p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Recent Activity</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                            <span class="text-sm text-gray-600">New lead added: Enrique Guzman</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                            <span class="text-sm text-gray-600">Job completed: 18 Avice Dale Dr</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                            <span class="text-sm text-gray-600">Contract signed: 123 Main St</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showDashboard() {
+            document.querySelector('.umbrella-gradient').style.display = 'none';
+            document.getElementById('dashboard').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html> 
